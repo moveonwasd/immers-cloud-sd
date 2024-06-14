@@ -7,10 +7,11 @@ if [ $(id -u) -ne 0 ]; then
   exit 1
 fi
 
-echo "удаление установленных по умолчанию моделей"
-rm -rf "$(pwd)/stable-diffusion-webui/models/Stable-diffusion/*"
-rm -rf "$(pwd)/stable-diffusion/*"
-echo "удаление модулей по умолчанию завершено"
+# не работает, т. к. модели, предустановленные immers.cloud - только для чтения
+#echo "удаление установленных по умолчанию моделей"
+#rm -rf "$(pwd)/stable-diffusion-webui/models/Stable-diffusion/*"
+#rm -rf "$(pwd)/stable-diffusion/*"
+#echo "удаление модулей по умолчанию завершено"
 
 # модели для установки
 declare -A models
