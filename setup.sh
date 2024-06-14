@@ -8,8 +8,8 @@ if [ $(id -u) -ne 0 ]; then
 fi
 
 echo "удаление установленных по умолчанию моделей"
-rm -rf "$(dirname "$0")/stable-diffusion-webui/models/Stable-diffusion/*"
-rm -rf "$(dirname "$0")/stable-diffusion/*"
+rm -rf "$(PWD)/stable-diffusion-webui/models/Stable-diffusion/*"
+rm -rf "$(PWD)/stable-diffusion/*"
 echo "удаление модулей по умолчанию завершено"
 
 # модели для установки
@@ -23,7 +23,7 @@ models["Rev Animated"]="https://huggingface.co/s6yx/ReV_Animated/resolve/main/re
 
 for key in "${!models[@]}"; do
   echo "установка модели '$key'"
-  wget -P "$(dirname "$0")/stable-diffusion-webui/models/Stable-diffusion/" "${models[$key]}"
+  wget -P "$(PWD)/stable-diffusion-webui/models/Stable-diffusion/" "${models[$key]}"
   echo "модель '$key' установлена"
 done
 
@@ -33,7 +33,7 @@ embeddings["EasyNegative"]="https://huggingface.co/imagepipeline/EasyNegative/re
 
 for key in "${!embeddings[@]}"; do
   echo "установка эмбеддинга '$key'"
-  wget -P "$(dirname "$0")/stable-diffusion-webui/embeddings/" "${embeddings[$key]}"
+  wget -P "$(PWD)/stable-diffusion-webui/embeddings/" "${embeddings[$key]}"
   echo "эмбеддинг '$key' установлен"
 done
 
@@ -44,13 +44,13 @@ lora["M_Pixel"]="https://huggingface.co/metalmouseN/M-Pixel/resolve/main/pixel_f
 
 for key in "${!lora[@]}"; do
   echo "установка лора '$key'"
-  wget -P "$(dirname "$0")/stable-diffusion-webui/models/Lora/" "${lora[$key]}"
+  wget -P "$(PWD)/stable-diffusion-webui/models/Lora/" "${lora[$key]}"
   echo "лора '$key' установлена"
 done
 
 echo "установка sfw стиля по умолчанию"
-mv "$(dirname "$0")/styles.csv" "$(dirname "$0")/stable-diffusion-webui/"
-mv "$(dirname "$0")/ui-config.json" "$(dirname "$0")/stable-diffusion-webui/"
+mv "$(PWD)/styles.csv" "$(PWD)/stable-diffusion-webui/"
+mv "$(PWD)/ui-config.json" "$(PWD)/stable-diffusion-webui/"
 echo "установка sfw стиля завершена"
 
 echo "первоначальная настройка automatic1111 на immers.cloud завершена"
