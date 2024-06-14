@@ -9,6 +9,7 @@ fi
 
 echo "удаление установленных по умолчанию моделей"
 rm -rf "$(dirname "$0")/stable-diffusion-webui/models/Stable-diffusion/*"
+rm -rf "$(dirname "$0")/stable-diffusion/*"
 echo "удаление модулей по умолчанию завершено"
 
 # модели для установки
